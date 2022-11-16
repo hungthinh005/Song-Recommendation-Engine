@@ -8,8 +8,8 @@ import streamlit.components.v1 as components
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 @st.cache(allow_output_mutation=True)
 def load_data():
-    df_filter_name = pd.read_csv("data/filter by name.csv")
-    df_filter_lyrics = pd.read_csv("data/filter by lyrics.csv")
+    df_filter_name = pd.read_csv("filter by name.csv")
+    df_filter_lyrics = pd.read_csv("filter by lyrics.csv")
 
     df_filter_name['genres'] = df_filter_name.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
     # df_filter_lyrics['genres'] = df_filter_lyrics.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
