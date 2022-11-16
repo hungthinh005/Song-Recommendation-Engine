@@ -1,13 +1,11 @@
 import streamlit as st
-st.set_page_config(page_title="Song Recommendation", layout="wide")
-
 import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import plotly.express as px
 import streamlit.components.v1 as components
 
 
-
+st.set_page_config(page_title="Song Recommendation", layout="wide")
 @st.cache(allow_output_mutation=True)
 def load_data():
     df_filter_name = pd.read_csv("data/filter by name.csv")
