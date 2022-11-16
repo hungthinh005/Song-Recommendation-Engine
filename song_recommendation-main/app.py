@@ -56,8 +56,8 @@ def page():
     # icon("search") 
     # selected = st.text_input("", "")
     # button_clicked = st.button("OK")
-    df_filter_name = pd.read_csv("data/filter by name.csv")
-    df_filter_lyrics = pd.read_csv("data/filter by lyrics.csv")
+    df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
+    df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
 
 ###    
     st.sidebar.markdown("Advance")
