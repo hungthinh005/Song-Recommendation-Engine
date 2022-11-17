@@ -26,7 +26,9 @@ exploded_track_df = load_data()
 
 
 def n_neighbors_uri_audio(genres_selections, start_year, end_year, test_feat):
-    genres_selections = genres_selections.lower()
+#     genres_selections = genres_selections.lower()
+    list(map(lambda x: x.lower(), genres_selections))
+    
     genre_data = exploded_track_df[(exploded_track_df["genres"]==genres_selections) & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
@@ -75,7 +77,7 @@ def page():
 
     
     genres_selections = st.sidebar.multiselect(
-        "Select Accounts to View", options=genre_names, default=genre_names
+        "Select Genre", options=genre_names, default=genre_names
     )
         
       
