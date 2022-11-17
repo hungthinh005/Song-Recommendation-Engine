@@ -148,10 +148,10 @@ def page():
                             height=400,
                         )
                         with st.expander("See more details"):
-                            df_filter_name = pd.DataFrame(dict(
+                            df_filter_name1 = pd.DataFrame(dict(
                             r=audio[:5],
                             theta=audio_feats[:5]))
-                            fig = px.line_polar(df_filter_name, r='r', theta='theta', line_close=True)
+                            fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=340)
                             st.plotly_chart(fig)
             
@@ -162,10 +162,10 @@ def page():
                             height=400,
                         )
                         with st.expander("See more details"):
-                            df_filter_name = pd.DataFrame(dict(
+                            df_filter_name1 = pd.DataFrame(dict(
                                 r=audio[:5],
                                 theta=audio_feats[:5]))
-                            fig = px.line_polar(df_filter_name, r='r', theta='theta', line_close=True)
+                            fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=340)
                             st.plotly_chart(fig)
 
