@@ -23,12 +23,15 @@ audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "va
 
 exploded_track_df = load_data()
 # exploded_track_df1 = load_data()
-
+def loop_genre(genre):
+    for i in genre:
+        return genre[i]
 
 def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
 #     genre = genre.lower()
-    [x.lower() for x in genre]
-    genre_data = exploded_track_df[(exploded_track_df["genres"] in genre) & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
+    
+    genre_data = exploded_track_df[(exploded_track_df["genres"] == [x.lower() for x in genre]) 
+                                   & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
 
