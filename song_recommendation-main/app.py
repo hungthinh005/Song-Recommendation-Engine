@@ -65,7 +65,7 @@ def page():
         
         
     st.sidebar.markdown("")
-    genre = st.radio("", genre_names, index=genre_names.index("Pop"))
+    genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
     
         
