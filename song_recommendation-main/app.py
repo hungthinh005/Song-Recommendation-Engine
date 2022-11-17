@@ -73,8 +73,8 @@ def page():
         
         
 
-    st.markdown("***Choose your genre:***")
-    genre = st.radio("", genre_names, index=genre_names.index("Pop"))
+    st.sidebar.markdown("***Choose your genre:***")
+    genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
 
         
       
