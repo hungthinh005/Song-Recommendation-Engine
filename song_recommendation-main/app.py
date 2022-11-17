@@ -67,19 +67,26 @@ def page():
         select_df = st.selectbox("Choose Music", df_filter_name)
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
     if select_event == "By Lyrics":
-        select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics, label_visibility="hidden")
+        select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
         
         
+    st.sidebar.subheader("Choose Your Genres")
+
+    
+    genres_selections = st.sidebar.multiselect(
+        "Select Accounts to View", options=genre_names, default=genre_names
+    )
         
+      
         
     with st.container():
         col1, col2,col3,col4 = st.columns((2,0.5,0.5,0.5))
-        with col3:
-            st.markdown("***Choose your genre:***")
-            genre = st.radio(
-                "",
-                genre_names, index=genre_names.index("Pop"))
+#         with col3:
+#             st.markdown("***Choose your genre:***")
+#             genre = st.radio(
+#                 "",
+#                 genre_names, index=genre_names.index("Pop"))
         with col1:
             st.markdown("***Choose features to customize:***")
             start_year, end_year = st.slider(
@@ -107,7 +114,7 @@ def page():
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
-    uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
+    uris, audios = n_neighbors_uri_audio(genres_selections, start_year, end_year, test_feat)
 
     tracks = []
     for uri in uris:
@@ -115,9 +122,9 @@ def page():
         tracks.append(track)
 
     if 'previous_inputs' not in st.session_state:
-        st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
+        st.session_state['previous_inputs'] = [genres_selections, start_year, end_year] + test_feat
     
-    current_inputs = [genre, start_year, end_year] + test_feat
+    current_inputs = [genres_selections, start_year, end_year] + test_feat
     if current_inputs != st.session_state['previous_inputs']:
         if 'start_track_i' in st.session_state:
             st.session_state['start_track_i'] = 0
