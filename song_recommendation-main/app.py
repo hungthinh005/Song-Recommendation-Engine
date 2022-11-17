@@ -80,7 +80,7 @@ def page():
       
         
     with st.container():
-        col1, col2,col3,col4 = st.columns((2,0.5,0.5,0.5))
+        col1, col2,col3,col4 = st.columns((3,0.5,0.5,0.5))
 #         with col3:
 #             st.markdown("***Choose your genre:***")
 #             genre = st.radio(
