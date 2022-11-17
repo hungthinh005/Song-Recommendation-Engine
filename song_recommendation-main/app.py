@@ -18,7 +18,7 @@ def load_data():
     # exploded_track_df1 = df_filter_lyrics.explode("genres")
     return exploded_track_df
 
-# genre_names = ['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock']
+genre_names = ['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock']
 audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", "tempo"]
 
 exploded_track_df = load_data()
@@ -73,7 +73,7 @@ def page():
         
         
     st.sidebar.markdown("")
-    genre = st.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
+    genre = st.radio("", genre_names, index=genre_names.index("Pop"))
     
         
       
