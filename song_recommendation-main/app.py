@@ -69,7 +69,7 @@ def page():
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics, label_visibility="hidden")
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
-        st.write('You selected:', df_filter["name"])
+        st.write('You selected:', df_filter[df_filter["name"]])
         
         
         
