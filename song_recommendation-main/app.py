@@ -117,16 +117,19 @@ def page():
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
     uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
-
+    
+    #test genre
+    random_genre = random.choice(genre)
+    
     tracks = []
     for uri in uris:
         track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
         tracks.append(track)
 
     if 'previous_inputs' not in st.session_state:
-        st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
+        st.session_state['previous_inputs'] = [random_genre, start_year, end_year] + test_feat
     
-    current_inputs = [genre, start_year, end_year] + test_feat
+    current_inputs = [random_genre, start_year, end_year] + test_feat
     if current_inputs != st.session_state['previous_inputs']:
         if 'start_track_i' in st.session_state:
             st.session_state['start_track_i'] = 0
