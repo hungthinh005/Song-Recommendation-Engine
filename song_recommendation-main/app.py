@@ -153,7 +153,7 @@ def page():
                             theta=audio_feats[:5]))
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=340)
-                            st.write(fig)
+                            st.plotly(fig)
             
                 else:
                     with col3:
@@ -167,7 +167,7 @@ def page():
                                 theta=audio_feats[:5]))
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=340)
-                            st.write(fig)
+                            st.plotly(fig)
 
         else:
             st.write("No songs left to recommend")
