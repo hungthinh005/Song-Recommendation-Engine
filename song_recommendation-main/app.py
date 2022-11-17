@@ -75,7 +75,7 @@ def page():
 
     st.sidebar.markdown("***Choose your genre:***")
     genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
-
+    st.write("##")
         
       
         
