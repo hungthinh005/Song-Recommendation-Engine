@@ -153,7 +153,6 @@ def page():
                             theta=audio_feats[:5]))
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=340)
-                            radar_chart(1)
                             st.plotly_chart(fig)
             
                 else:
@@ -167,7 +166,7 @@ def page():
                                 r=audio[:5],
                                 theta=audio_feats[:5]))
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                            fig.update_layout(height=400, width=340)
+                            fig.update_layout(0,1)
                             st.plotly_chart(fig)
 
         else:
