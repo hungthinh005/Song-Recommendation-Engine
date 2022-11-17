@@ -12,25 +12,21 @@ def load_data():
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
 
     df_filter_name['genres'] = df_filter_name.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
-    # df_filter_lyrics['genres'] = df_filter_lyrics.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
+    df_filter_lyrics['genres'] = df_filter_lyrics.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
 
     exploded_track_df = df_filter_name.explode("genres")
     # exploded_track_df1 = df_filter_lyrics.explode("genres")
     return exploded_track_df
 
-#genre_names = ['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock']
+genre_names = ['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock']
 audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", "tempo"]
 
 exploded_track_df = load_data()
-# exploded_track_df1 = load_data()
-def loop_genre(genre):
-    for i in genre:
-        return genre[i]
 
 def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
-#     genre = genre.lower()
-    [x.lower() for x in genre]
-    genre_data = exploded_track_df[(exploded_track_df["genres"].isin(genre)) 
+    genre = genre.lower()
+#     [x.lower() for x in genre]
+    genre_data = exploded_track_df[(exploded_track_df["genres"]==genre) 
                                    & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
@@ -53,17 +49,10 @@ def page():
 
     st.write("First of all, welcome! This is the place where you can customize what you want to listen to based on genre and several key audio features. Try playing around with different settings and listen to the songs recommended by our system!")
     st.markdown("##")
-###
-    # local_css("style.css")
-    # remote_css('https://fonts.googleapis.com/icon?family=Material+Icons')
 
-    # icon("search") 
-    # selected = st.text_input("", "")
-    # button_clicked = st.button("OK")
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
 
-###    
     st.sidebar.markdown("Advance")
     select_event = st.sidebar.selectbox('How do you want to recommend for you',
                                     ['By Name', 'By Lyrics'])
@@ -76,19 +65,14 @@ def page():
         
         
     st.sidebar.markdown("")
-#     genre = st.radio("", genre_names, index=genre_names.index("Pop"))
-    genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
+    genre = st.radio("", genre_names, index=genre_names.index("Pop"))
+#     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
     
         
       
         
     with st.container():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
-#         with col3:
-#             st.markdown("***Choose your genre:***")
-#             genre = st.radio(
-#                 "",
-#                 genre_names, index=genre_names.index("Pop"))
         with col1:
             st.markdown("***Choose features to customize:***")
             start_year, end_year = st.slider(
@@ -118,8 +102,6 @@ def page():
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
     uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
     
-    #test genre
-    random_genre = random.choice(genre)
     
     tracks = []
     for uri in uris:
@@ -127,9 +109,9 @@ def page():
         tracks.append(track)
 
     if 'previous_inputs' not in st.session_state:
-        st.session_state['previous_inputs'] = [random_genre, start_year, end_year] + test_feat
+        st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
     
-    current_inputs = [random_genre, start_year, end_year] + test_feat
+    current_inputs = [genre, start_year, end_year] + test_feat
     if current_inputs != st.session_state['previous_inputs']:
         if 'start_track_i' in st.session_state:
             st.session_state['start_track_i'] = 0
