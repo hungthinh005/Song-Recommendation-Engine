@@ -67,7 +67,7 @@ def page():
         select_df = st.selectbox("Choose Music", df_filter_name)
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
     if select_event == "By Lyrics":
-        select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics, label_visibility="visible")
+        select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics, label_visibility="hidden")
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
 
     with st.container():
