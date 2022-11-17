@@ -25,10 +25,8 @@ exploded_track_df = load_data()
 # exploded_track_df1 = load_data()
 
 
-def n_neighbors_uri_audio(genres_selections, start_year, end_year, test_feat):
-#     genres_selections = genres_selections.lower()
-    for word in genres_selections:
-    genre = word.lower()
+def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
+    genre = genre.lower()
     
     genre_data = exploded_track_df[(exploded_track_df["genres"]==genre) & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
@@ -77,7 +75,7 @@ def page():
     st.sidebar.subheader("Choose Your Genres")
 
     
-    genres_selections = st.sidebar.multiselect(
+    genre = st.sidebar.multiselect(
         "Select Genre", options=genre_names, default=genre_names
     )
         
@@ -117,7 +115,7 @@ def page():
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
-    uris, audios = n_neighbors_uri_audio(genres_selections, start_year, end_year, test_feat)
+    uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
 
     tracks = []
     for uri in uris:
@@ -125,9 +123,9 @@ def page():
         tracks.append(track)
 
     if 'previous_inputs' not in st.session_state:
-        st.session_state['previous_inputs'] = [genres_selections, start_year, end_year] + test_feat
+        st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
     
-    current_inputs = [genres_selections, start_year, end_year] + test_feat
+    current_inputs = [genre, start_year, end_year] + test_feat
     if current_inputs != st.session_state['previous_inputs']:
         if 'start_track_i' in st.session_state:
             st.session_state['start_track_i'] = 0
