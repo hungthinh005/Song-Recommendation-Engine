@@ -72,12 +72,10 @@ def page():
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
         
         
-    st.sidebar.subheader("Choose Your Genres")
 
-    
-    genre = st.sidebar.multiselect(
-        "Select Genre", options=genre_names, default=genre_names
-    )
+    st.markdown("***Choose your genre:***")
+    genre = st.radio("", genre_names, index=genre_names.index("Pop"))
+
         
       
         
