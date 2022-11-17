@@ -25,9 +25,9 @@ exploded_track_df = load_data()
 # exploded_track_df1 = load_data()
 
 
-def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
-    genre = genre.lower()
-    genre_data = exploded_track_df[(exploded_track_df["genres"]==genre) & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
+def n_neighbors_uri_audio(genres_selections, start_year, end_year, test_feat):
+    genres_selections = genres_selections.lower()
+    genre_data = exploded_track_df[(exploded_track_df["genres"]==genres_selections) & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
 
