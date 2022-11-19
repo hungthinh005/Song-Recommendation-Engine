@@ -45,7 +45,7 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     return uris, audios
 #test
 def show_song(df_filter_uri):
-    track_by_search = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter_uri)
+    track_by_search = "<iframe src="https://open.spotify.com/embed/track/{}".format(df_filter_uri)
     response = requests.get(track_by_search)
     res = response.json()
     return res
@@ -67,7 +67,7 @@ def page():
     if select_event == "By Name":
         select_df = st.selectbox("Choose Music", df_filter_name)
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
-        df_filter_uri = df_filter["uri"]
+        
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
@@ -84,9 +84,9 @@ def page():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
         with col1:
             #test
-            if df_filter_uri:
-                res = show_song(df_filter_uri)
-                st.write(res)
+            df_filter_uri = df_filter["uri"]
+            res = show_song(df_filter_uri)
+            st.write(res)
             #test
             
             
