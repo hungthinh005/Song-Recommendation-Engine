@@ -47,7 +47,7 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
 def show_song(df_filter_uri):
     track_by_search = "https://open.spotify.com/embed/track/{}".format(df_filter_uri)
     response = requests.get(track_by_search)
-    res = response.json()
+    res = response.json()["html"] 
     return res
 #test
 
@@ -86,6 +86,7 @@ def page():
             #test
             df_filter_uri = df_filter["uri"]
             res = show_song(df_filter_uri)
+            components.html(res,height= 700)
             st.write(res)
             #test
             
