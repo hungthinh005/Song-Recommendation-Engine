@@ -128,25 +128,25 @@ def page():
     with st.container():
         with st.expander("Choose features to make your own recommend list:"):
 
-        start_year, end_year = 1990, 2019
-        acousticness = st.slider(
-            'Acousticness',
-            0.0, 1.0, float(df_filter['acousticness']))
-        danceability = st.slider(
-            'Danceability',
-            0.0, 1.0, float(df_filter['danceability']))
-        energy = st.slider(
-            'Energy',
-            0.0, 1.0, float(df_filter['energy']))
-        instrumentalness = st.slider(
-            'Instrumentalness',
-            0.0, 1.0, float(df_filter['instrumentalness']))
-        valence = st.slider(
-            'Valence',
-            0.0, 1.0, float(df_filter['valence']))
-        tempo = st.slider(
-            'Tempo',
-            0.0, 244.0, float(df_filter['tempo']))
+            start_year, end_year = 1990, 2019
+            acousticness = st.slider(
+                'Acousticness',
+                0.0, 1.0, float(df_filter['acousticness']))
+            danceability = st.slider(
+                'Danceability',
+                0.0, 1.0, float(df_filter['danceability']))
+            energy = st.slider(
+                'Energy',
+                0.0, 1.0, float(df_filter['energy']))
+            instrumentalness = st.slider(
+                'Instrumentalness',
+                0.0, 1.0, float(df_filter['instrumentalness']))
+            valence = st.slider(
+                'Valence',
+                0.0, 1.0, float(df_filter['valence']))
+            tempo = st.slider(
+                'Tempo',
+                0.0, 244.0, float(df_filter['tempo']))
     
 
     tracks_per_page = 10
