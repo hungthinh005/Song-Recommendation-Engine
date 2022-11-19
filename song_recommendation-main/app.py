@@ -83,7 +83,7 @@ def page():
             st.markdown("***Choose features to customize:***")
             start_year, end_year = st.slider(
                 'Select the year range',
-                1990, 2019, int(df_filter['release_year']
+                1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
             )
             acousticness = st.slider(
                 'Acousticness',
