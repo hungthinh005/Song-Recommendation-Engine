@@ -122,7 +122,8 @@ def page():
                     0.0, 244.0, float(df_filter['tempo']))
         with col2:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '500px'})
-            st.write(df_filter_artists["name"])
+            df_filter_artists = df_filter_artists.rename(columns={"name": "Setlist"})
+            st.write(df_filter_artists["Setlist"])
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
