@@ -84,12 +84,13 @@ def page():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
         with col1:
             #test
-            if df_filter_uri != null:
-                res = show_song(df_filter_uri)
-                components.html(res,height= 700)
+#             if df_filter_uri != null:
+#                 res = show_song(df_filter_uri)
+#                 components.html(res,height= 700)
+             
             
             #test
-            
+            """<iframe src="https://open.spotify.com/embed/track/4JH1M62gVDNDhDAUiQB3Qv" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>"""
             
             
             st.markdown("***Choose features to customize:***")
