@@ -48,7 +48,7 @@ def page():
     title = "Song Recommendation Engine"
     st.title(title)
 
-    st.write("First of all, welcome! This is the place where you can customize what you want to listen to based on genre and several key audio features. Try playing around with different settings and listen to the songs recommended by our system!")
+    st.write("Welcome! This is the place where you can search and customize what you want to listen to based on genre and several key audio attributes. Enjoy!")
     st.markdown("##")
 
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
