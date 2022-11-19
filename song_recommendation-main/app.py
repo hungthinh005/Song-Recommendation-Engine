@@ -121,7 +121,7 @@ def page():
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
         with col2:
-            st.dataframe(df_filter_artists["name"])
+            st.write(df_filter_artists["name"])
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
