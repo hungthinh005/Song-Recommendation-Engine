@@ -84,7 +84,7 @@ def page():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
         with col1:
             #test
-            if df_filter_uri is not null:
+            if df_filter_uri != null:
                 res = show_song(df_filter_uri)
                 components.html(res,height= 700)
             
