@@ -88,17 +88,13 @@ def page():
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 10))
         with col1:
-            #test
-#             if df_filter_uri != null:
-#                 res = show_song(df_filter_uri)
-#                 components.html(res,height= 700)
-             
-            
-            #test
             for i in df_filter_uri:
                 show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
                 components.html(show_song,height= 400)
             st.markdown("Advance")
+        with col2:
+            st.markdown("Genre: " )
+            st.markdown("Year: ")
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
@@ -124,7 +120,7 @@ def page():
 #                 tempo = st.slider(
 #                     'Tempo',
 #                     0.0, 244.0, float(df_filter['tempo']))
-        with col2:
+        with col3:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '700px'})
             df_filter_artists = df_filter_artists.rename(columns={"name": "                                                                          Setlist                                                                          "})
             st.write(df_filter_artists["                                                                          Setlist                                                                          "])
