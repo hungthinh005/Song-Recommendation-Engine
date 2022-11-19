@@ -126,7 +126,7 @@ def page():
             st.write(df_filter_artists["Setlist"])
     
     with st.container():
-        with st.expander("Choose features to make your own recommend list:"):
+        with st.expander("Choose features to make your own Recommendation List:"):
 
             start_year, end_year = 1990, 2019
             acousticness = st.slider(
