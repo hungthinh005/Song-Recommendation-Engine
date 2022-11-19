@@ -75,7 +75,7 @@ def page():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
         with col1:
             #test
-            track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter["uri"])
+            track_by_search = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter["uri"])
             #test
             
             
@@ -133,7 +133,7 @@ def page():
                 st.session_state['start_track_i'] += tracks_per_page
 
         current_tracks = tracks[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
-        current_audios = audios[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
+#         current_audios = audios[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
         if st.session_state['start_track_i'] < len(tracks):
             for i, (track, audio) in enumerate(zip(current_tracks, current_audios)):
                 if i%2==0:
