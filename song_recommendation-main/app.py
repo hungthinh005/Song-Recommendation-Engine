@@ -43,6 +43,13 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     audios = genre_data.iloc[n_neighbors][audio_feats].to_numpy()
 
     return uris, audios
+#test
+def show_song(uri_by_search):
+    track_by_search = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri_by_search)
+    response = requests.get(track_by_search)
+    res = response.json()
+    return res
+#test
 
 def page():
     title = "Song Recommendation Engine"
@@ -60,6 +67,7 @@ def page():
     if select_event == "By Name":
         select_df = st.selectbox("Choose Music", df_filter_name)
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
+        df_filter_uri = df_filter["uri]
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
@@ -69,17 +77,16 @@ def page():
     genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
     
-        
+    
       
         
     with st.container():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
         with col1:
             #test
-            track_by_search = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter["uri"])
-            response = request.get(track_by_search)
-            res = response.json()
-            st.write(res)
+            if df_filter_uri:
+                res = show_song(df_filter_uri)
+                st.write(res)
             #test
             
             
