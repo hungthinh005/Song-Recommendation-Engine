@@ -90,8 +90,8 @@ def page():
              
             
             #test
-            """<iframe src="https://open.spotify.com/embed/track/4JH1M62gVDNDhDAUiQB3Qv" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>"""
-            
+            test = """<iframe src="https://open.spotify.com/embed/track/4JH1M62gVDNDhDAUiQB3Qv" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>"""
+            components.html(test,height= 400)
             
             st.markdown("***Choose features to customize:***")
             start_year, end_year = st.slider(
