@@ -67,7 +67,8 @@ def page():
     if select_event == "By Name":
         select_df = st.selectbox("Choose Music", df_filter_name)
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
-#         df_filter_uri = df_filter.uri[1]
+        df_filter_uri = df_filter["uri"]
+        df_filter_uri = df_filter_uri.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
@@ -90,9 +91,9 @@ def page():
              
             
             #test
-#             test = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter_uri)
-#             components.html(test,height= 400)
-            st.write(uris)
+            test = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter_uri)
+            components.html(test,height= 400)
+
             
             st.markdown("***Choose features to customize:***")
             start_year, end_year = st.slider(
