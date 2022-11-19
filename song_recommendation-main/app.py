@@ -62,6 +62,7 @@ def page():
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
+        df_filter_by_artists = df_filter_name[df_filter_name["artists_name"] == df_filter["artists_name"]]
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
@@ -115,6 +116,8 @@ def page():
                 tempo = st.slider(
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
+        with col3:
+            st.markdown(df_filter_by_artists.index.tolist())
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
