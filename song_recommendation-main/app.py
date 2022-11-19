@@ -5,7 +5,6 @@ import plotly.express as px
 import streamlit.components.v1 as components
 import requests
 import numpy as np
-from st_aggrid import GridOptionsBuilder
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 @st.cache(allow_output_mutation=True)
@@ -83,7 +82,7 @@ def page():
       
         
     with st.container():
-        col1, col2, col3 = st.columns((15,50,10))
+        col1, col2, col3 = st.columns((15,20,50))
         with col1:
             #test
 #             if df_filter_uri != null:
@@ -122,8 +121,7 @@ def page():
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
         with col2:
-            options = GridOptionsBuilder.from_dataframe(df_filter_artists, enableRowGroup=True, enableValue=True)
-            st.dataframe(options)
+            st.dataframe(df_filter_artists["name])
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
