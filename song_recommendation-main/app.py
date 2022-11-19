@@ -65,7 +65,7 @@ def page():
         artists_name = df_filter["artists_name"]
 #         artists_name = artists_name.values.tolist()
         artists_name = pd.DataFrame(artists_name)
-        df_filter_by_artists = df_filter_name.iloc[(df_filter_name["artists_name"].sort_index().sort_index(axis=1) == artists_name.sort_index().sort_index(axis=1))]
+        df_filter_by_artists = df_filter_name.loc[(df_filter_name["artists_name"].sort_index().sort_index(axis=1) == artists_name.sort_index().sort_index(axis=1))]
 #         df_filter_by_artists = df_filter_by_artists.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
