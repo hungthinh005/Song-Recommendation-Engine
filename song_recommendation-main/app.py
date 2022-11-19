@@ -82,7 +82,7 @@ def page():
       
         
     with st.container():
-        col1, col2, col3 = st.columns((15,20,50))
+        col1, col2, col3 = st.columns(3)
         with col1:
             #test
 #             if df_filter_uri != null:
