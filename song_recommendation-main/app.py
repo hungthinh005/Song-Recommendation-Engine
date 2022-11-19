@@ -122,7 +122,7 @@ def page():
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
         with col2:
-             options = GridOptionsBuilder.from_dataframe(df_filter_artists, enableRowGroup=True, enableValue=True)
+            options = GridOptionsBuilder.from_dataframe(df_filter_artists, enableRowGroup=True, enableValue=True)
             st.dataframe(options["name"])
 
     tracks_per_page = 10
