@@ -94,9 +94,9 @@ def page():
             for i in df_filter_uri:
                 test = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
                 components.html(test,height= 400)
-
-            with st.expander("Advance"):
-                st.markdown("***Choose features to make your own recommend list:***")
+            st.markdown("Advance")
+            with st.expander("Choose features to make your own recommend list:"):
+               
 #                 start_year, end_year = st.slider(
 #                     'Select the year range',
 #                     1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
