@@ -120,7 +120,7 @@ def page():
                 tempo = st.slider(
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
-        with col3:
+#         with col3:
 #             st.dataframe(df_filter_artists["name"])
 
     tracks_per_page = 10
