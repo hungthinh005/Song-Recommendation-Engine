@@ -94,7 +94,7 @@ def page():
                 show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
                 components.html(show_song,height= 400)
             st.markdown("Advance")
-            st.write(datatype(select_df))
+            st.write(type(select_df))
             with st.expander("Choose features to make your own recommend list:"):
                
 #                 start_year, end_year = st.slider(
