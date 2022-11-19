@@ -43,13 +43,6 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     audios = genre_data.iloc[n_neighbors][audio_feats].to_numpy()
 
     return uris, audios
-#test
-def show_song(uri_by_search):
-    track_by_search = "https://open.spotify.com/embed/track/{}".format(uri_by_search)
-    response = requests.get(track_by_search)
-    res = response.json()["html"] 
-    return res
-#test
 
 def page():
     title = "Song Recommendation Engine"
@@ -92,8 +85,8 @@ def page():
             
             #test
             for i in df_filter_uri:
-                test = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
-                components.html(test,height= 400)
+                show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
+                components.html(show_song,height= 400)
             st.markdown("Advance")
             with st.expander("Choose features to make your own recommend list:"):
                
