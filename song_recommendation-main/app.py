@@ -58,7 +58,7 @@ def page():
     select_event = st.sidebar.selectbox('How do you want to recommend for you',
                                     ['By Name', 'By Lyrics'])
     if select_event == "By Name":
-        select_df = st.selectbox("Choose Music", df_filter_name)
+        select_df = st.selectbox("Type Your Music", df_filter_name)
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
@@ -86,7 +86,7 @@ def page():
       
         
     with st.container():
-        col1, col2 = st.columns((10, 10))
+        col1, col2, col3 = st.columns((10, 10, 10))
         with col1:
             #test
 #             if df_filter_uri != null:
