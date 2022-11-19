@@ -66,7 +66,7 @@ def page():
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
         df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)]
-        df_filter_artists.index = np.arange(1, len(df) + 1)
+        df_filter_artists.index = np.arange(1, len(df_filter_artists) + 1)
 #         df_filter_by_artists = df_filter_by_artists.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
