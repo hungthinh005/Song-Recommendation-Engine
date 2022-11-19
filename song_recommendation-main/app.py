@@ -65,6 +65,8 @@ def page():
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
+        df_filter_uri = df_filter["uri"]
+        df_filter_uri = df_filter_uri.values.tolist()
         
         
     st.sidebar.markdown("")
