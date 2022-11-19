@@ -87,7 +87,7 @@ def page():
             df_filter_uri = df_filter["uri"]
             res = show_song(df_filter_uri)
             components.html(res,height= 700)
-            st.write(res)
+            
             #test
             
             
