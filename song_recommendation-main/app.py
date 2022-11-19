@@ -63,8 +63,8 @@ def page():
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
         artists_name = df_filter["artists_name"]
-        artists_name = artists_name.values.tolist()
-#         df_filter_artists = df_filter_name.loc[(df_filter_name["artists_name"] == artists_name)]
+        artists_name = str(artists_name)
+        df_filter_artists = df_filter_name.loc[(df_filter_name["artists_name"] == artists_name)]
 #         df_filter_by_artists = df_filter_by_artists.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
@@ -94,7 +94,6 @@ def page():
                 show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
                 components.html(show_song,height= 400)
             st.markdown("Advance")
-            st.write(type(select_df))
             with st.expander("Choose features to make your own recommend list:"):
                
 #                 start_year, end_year = st.slider(
@@ -120,8 +119,8 @@ def page():
                 tempo = st.slider(
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
-#         with col3:
-#             st.dataframe(df_filter_artists["name"])
+        with col3:
+            st.dataframe(df_filter_artists["name"])
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
