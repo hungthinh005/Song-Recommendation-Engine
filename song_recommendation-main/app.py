@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import plotly.express as px
 import streamlit.components.v1 as components
+import requests
 
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
@@ -76,7 +77,9 @@ def page():
         with col1:
             #test
             track_by_search = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter["uri"])
-            st.write(track_by_search)
+            response = request.get(track_by_search)
+            res = response.json()
+            st.write(res)
             #test
             
             
