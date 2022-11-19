@@ -76,8 +76,8 @@ def page():
         with col1:
             #test
             track_by_search = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter["uri"])
-            current_tracks_by_search = tracks[track_by_search: st.session_state['start_track_i']]
-            current_audios_by_search = audios[track_by_search: st.session_state['start_track_i']]
+            current_tracks_by_search = tracks[track_by_search: track_by_search]
+            current_audios_by_search = audios[track_by_search: track_by_search]
             track_by_search_zip = enumerate(zip(current_tracks_by_search, current_audios_by_search))
             track_by_search_zip
             #test
