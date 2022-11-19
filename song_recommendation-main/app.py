@@ -95,35 +95,59 @@ def page():
                 show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
                 components.html(show_song,height= 400)
             st.markdown("Advance")
-            with st.expander("Choose features to make your own recommend list:"):
+#             with st.expander("Choose features to make your own recommend list:"):
                
-#                 start_year, end_year = st.slider(
-#                     'Select the year range',
-#                     1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
-#                 )
-                start_year, end_year = 1990, 2019
-                acousticness = st.slider(
-                    'Acousticness',
-                    0.0, 1.0, float(df_filter['acousticness']))
-                danceability = st.slider(
-                    'Danceability',
-                    0.0, 1.0, float(df_filter['danceability']))
-                energy = st.slider(
-                    'Energy',
-                    0.0, 1.0, float(df_filter['energy']))
-                instrumentalness = st.slider(
-                    'Instrumentalness',
-                    0.0, 1.0, float(df_filter['instrumentalness']))
-                valence = st.slider(
-                    'Valence',
-                    0.0, 1.0, float(df_filter['valence']))
-                tempo = st.slider(
-                    'Tempo',
-                    0.0, 244.0, float(df_filter['tempo']))
+# #                 start_year, end_year = st.slider(
+# #                     'Select the year range',
+# #                     1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
+# #                 )
+#                 start_year, end_year = 1990, 2019
+#                 acousticness = st.slider(
+#                     'Acousticness',
+#                     0.0, 1.0, float(df_filter['acousticness']))
+#                 danceability = st.slider(
+#                     'Danceability',
+#                     0.0, 1.0, float(df_filter['danceability']))
+#                 energy = st.slider(
+#                     'Energy',
+#                     0.0, 1.0, float(df_filter['energy']))
+#                 instrumentalness = st.slider(
+#                     'Instrumentalness',
+#                     0.0, 1.0, float(df_filter['instrumentalness']))
+#                 valence = st.slider(
+#                     'Valence',
+#                     0.0, 1.0, float(df_filter['valence']))
+#                 tempo = st.slider(
+#                     'Tempo',
+#                     0.0, 244.0, float(df_filter['tempo']))
         with col2:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '500px'})
             df_filter_artists = df_filter_artists.rename(columns={"name": "Setlist"})
             st.write(df_filter_artists["Setlist"])
+    
+    with st.container():
+        with st.expander("Choose features to make your own recommend list:"):
+
+        start_year, end_year = 1990, 2019
+        acousticness = st.slider(
+            'Acousticness',
+            0.0, 1.0, float(df_filter['acousticness']))
+        danceability = st.slider(
+            'Danceability',
+            0.0, 1.0, float(df_filter['danceability']))
+        energy = st.slider(
+            'Energy',
+            0.0, 1.0, float(df_filter['energy']))
+        instrumentalness = st.slider(
+            'Instrumentalness',
+            0.0, 1.0, float(df_filter['instrumentalness']))
+        valence = st.slider(
+            'Valence',
+            0.0, 1.0, float(df_filter['valence']))
+        tempo = st.slider(
+            'Tempo',
+            0.0, 244.0, float(df_filter['tempo']))
+    
 
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
