@@ -78,7 +78,8 @@ def page():
         df_filter_artists.index = np.arange(1, len(df_filter_artists) + 1)
         
     st.sidebar.markdown("")
-    genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
+    with st.expander("Choose your favorite genre")
+        genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
     
     
@@ -126,7 +127,7 @@ def page():
         with col2:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '500px'})
             df_filter_artists = df_filter_artists.rename(columns={"name": "Setlist"})
-            st.write(df_filter_artists["Setlist"])
+            st.write(df_filter_artists["Setlist                                           "])
     
     with st.container():
         with st.expander("Choose features to make your own Recommendation List:"):
