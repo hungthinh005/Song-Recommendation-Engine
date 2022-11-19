@@ -4,6 +4,7 @@ from sklearn.neighbors import NearestNeighbors
 import plotly.express as px
 import streamlit.components.v1 as components
 import requests
+import numpy as np
 
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
@@ -64,7 +65,8 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
-        df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)].reset_index()
+        df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)]
+        df_filter_artists = df_filter_artists.index = np.arange(1, len(df) + 1)
 #         df_filter_by_artists = df_filter_by_artists.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
