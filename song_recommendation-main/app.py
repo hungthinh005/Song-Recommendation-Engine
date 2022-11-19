@@ -75,7 +75,7 @@ def page():
         col1, col2,col3,col4 = st.columns((15,0.5,0.5,0.5))
         with col1:
             #test
-            st.write("https://open.spotify.com/embed/track/4JH1M62gVDNDhDAUiQB3Qv")
+            track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(df_filter["uri"])
             #test
             
             
