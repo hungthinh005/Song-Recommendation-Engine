@@ -121,7 +121,7 @@ def page():
                     'Tempo',
                     0.0, 244.0, float(df_filter['tempo']))
         with col2:
-            df_filter_artists = df_filter_artists.style.set_properties(subset=["name"], **{'width': '300px'})
+            df_filter_artists.style.set_properties(subset=["name"], **{'width': '300px'})
             st.write(df_filter_artists["name"])
 
     tracks_per_page = 10
