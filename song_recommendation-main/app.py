@@ -97,10 +97,11 @@ def page():
 
             with st.expander("Advance"):
                 st.markdown("***Choose features to make your own recommend list:***")
-                start_year, end_year = st.slider(
-                    'Select the year range',
-                    1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
-                )
+#                 start_year, end_year = st.slider(
+#                     'Select the year range',
+#                     1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
+#                 )
+                start_year, end_year = 1990, 2019
                 acousticness = st.slider(
                     'Acousticness',
                     0.0, 1.0, float(df_filter['acousticness']))
