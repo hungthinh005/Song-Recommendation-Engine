@@ -63,8 +63,8 @@ def page():
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
         artists_name = df_filter["artists_name"]
-        artists_name = str(artists_name)
-        df_filter_artists = df_filter_name.loc[(df_filter_name["artists_name"] == artists_name)]
+        artists_name = artists_name.values[0]
+        df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)]
 #         df_filter_by_artists = df_filter_by_artists.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
