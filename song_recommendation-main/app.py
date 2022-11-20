@@ -183,7 +183,7 @@ def page():
             f"""
                 <p>{st.session_state.counter}</p>
                 <script>
-                    window.parent.document.querySelector('section.main').scrollTo(100, 100);
+                    window.parent.document.querySelector('section.main').scrollTo(100, 1000);
                 </script>
             """,
             height=0
