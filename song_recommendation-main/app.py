@@ -108,7 +108,8 @@ def page():
 #         if "counter" not in st.session_state:
 #             st.session_state.counter = 1 
         if st.button("Search"):
-            components.html("<a href="#google">Search</a>")
+            components.html("""<a href="#google">Search</a>""")
+                            
 #             st.session_state.counter += 1
 #             components.html(
 #                 f"""
