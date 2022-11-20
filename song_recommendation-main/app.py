@@ -62,6 +62,10 @@ def page():
         df_filter = df_filter_name.loc[(df_filter_name["name"] == select_df)]
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
+        df_filter_genre = df_filter["genres"]
+        df_filter_genre = df_filter_genre.values.tolist()
+        df_filter_year = df_filter["release_year"]
+        df_filter_year = df_filter_year.values.tolist()
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
         df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)]
@@ -72,6 +76,10 @@ def page():
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
+        df_filter_genre = df_filter["genres"]
+        df_filter_genre = df_filter_genre.values.tolist()
+        df_filter_year = df_filter["release_year"]
+        df_filter_year = df_filter_year.values.tolist()
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
         df_filter_artists = df_filter_lyrics[(df_filter_lyrics["artists_name"] == artists_name)]
@@ -90,8 +98,8 @@ def page():
                 components.html(show_song,height= 400)
             st.markdown("Advance")
         with col2:
-            st.write("Genre: ", df_filter["genres"])
-            st.write("Year: ", df_filter["release_year"])
+            st.write("Genre: ", df_filter_genre)
+            st.write("Year: ", df_filter_year)
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
