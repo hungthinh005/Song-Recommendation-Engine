@@ -107,7 +107,7 @@ def page():
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
         if "counter" not in st.session_state:
             st.session_state.counter = 1 
-        if genre != null:
+        while True:
             st.session_state.counter += 1
             components.html(
                 f"""
