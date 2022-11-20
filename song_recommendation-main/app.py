@@ -44,7 +44,6 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     audios = genre_data.iloc[n_neighbors][audio_feats].to_numpy()
 
     return uris, audios
-
 def page():
     title = "Song Recommendation Engine"
     st.title(title)
@@ -105,69 +104,6 @@ def page():
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-        with st.container():
-            start_year, end_year = 1990, 2019
-            tracks_per_page = 10
-            test_feat1 = [acousticness, danceability, energy, instrumentalness, valence, tempo]
-            uris1, audios1 = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
-            tracks1 = []
-            for uri in uris1:
-                track1 = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
-                tracks1.append(track1)
-
-            if 'previous_inputs1' not in st.session_state:
-                st.session_state['previous_inputs1'] = [genre, start_year, end_year] + test_feat1
-
-            current_inputs1 = [genre, start_year, end_year] + test_feat1
-            if current_inputs1 != st.session_state['previous_inputs1']:
-                if 'start_track_i1' in st.session_state:
-                    st.session_state['start_track_i1'] = 0
-                st.session_state['previous_inputs1'] = current_inputs1
-
-            if 'start_track_i1' not in st.session_state:
-                st.session_state['start_track_i1'] = 0
-
-            with st.container():
-                col1, col2, col3 = st.columns([2,1,2])
-                if st.button("Recommend More Songs"):
-                    if st.session_state['start_track_i1'] < len(tracks1):
-                        st.session_state['start_track_i1'] += tracks_per_page
-
-                current_tracks1 = tracks1[st.session_state['start_track_i1']: st.session_state['start_track_i1'] + tracks_per_page]
-                current_audios1 = audios1[st.session_state['start_track_i1']: st.session_state['start_track_i1'] + tracks_per_page]
-                if st.session_state['start_track_i'] < len(tracks1):
-                    for i, (track1, audio1) in enumerate(zip(current_tracks1, current_audios1)):
-                        if i%2==0:
-                            with col1:
-                                components.html(
-                                    track1,
-                                    height=400,
-                                )
-                                with st.expander("See more details"):
-                                    df_filter_name1 = pd.DataFrame(dict(
-                                    r=audio1[:5],
-                                    theta=audio_feats1[:5]))
-                                    fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                    fig.update_layout(height=400, width=340)
-                                    st.plotly_chart(fig)
-
-                        else:
-                            with col3:
-                                components.html(
-                                    track1,
-                                    height=400,
-                                )
-                                with st.expander("See more details"):
-                                    df_filter_name1 = pd.DataFrame(dict(
-                                    r=audio1[:5],
-                                    theta=audio_feats1[:5]))
-                                    fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                    fig.update_layout(height=400, width=340)
-                                    st.plotly_chart(fig)
-
-                else:
-                    st.write("No songs left to recommend")
-        st.stop()
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
