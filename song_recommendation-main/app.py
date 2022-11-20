@@ -171,6 +171,8 @@ def page():
         st.session_state['start_track_i'] = 0
 
         
+        
+        
     #test
     if "counter" not in st.session_state:
         st.session_state.counter = 1   
@@ -181,12 +183,17 @@ def page():
             f"""
                 <p>{st.session_state.counter}</p>
                 <script>
-                    window.parent.document.querySelector('section.main').scrollTo(0, 0);
+                    window.parent.document.querySelector('section.main').scrollTo(10, 0);
                 </script>
             """,
             height=0
         )
     #test
+    
+    
+    
+    
+    
     with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         
