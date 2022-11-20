@@ -100,7 +100,7 @@ def page():
     st.sidebar.markdown("")
     st.sidebar.markdown("")
     st.sidebar.markdown("")
-    components.html("""<a href="#google">Search</a>""")
+    
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
@@ -162,7 +162,7 @@ def page():
             tempo = st.slider(
                 'Tempo',
                 0.0, 244.0, float(df_filter['tempo']))
-    
+    components.html("""<a href="#google">Search</a>""")
     components.html("""<div id="google">Recommended Songs</div>""")
 #     st.markdown("Recommended Songs")
     tracks_per_page = 10
