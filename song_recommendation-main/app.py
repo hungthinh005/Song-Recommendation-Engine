@@ -106,7 +106,7 @@ def page():
         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
         page1()
-        continue
+
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
@@ -121,31 +121,6 @@ def page():
             st.markdown(df_filter_playlist)
             st.markdown("**Release Date:** ")
             st.markdown(df_filter_year)
-#             with st.expander("Choose features to make your own recommend list:"):
-               
-# #                 start_year, end_year = st.slider(
-# #                     'Select the year range',
-# #                     1990, 2019, (int(df_filter['release_year']),int(df_filter['release_year']) - 1)
-# #                 )
-#                 start_year, end_year = 1990, 2019
-#                 acousticness = st.slider(
-#                     'Acousticness',
-#                     0.0, 1.0, float(df_filter['acousticness']))
-#                 danceability = st.slider(
-#                     'Danceability',
-#                     0.0, 1.0, float(df_filter['danceability']))
-#                 energy = st.slider(
-#                     'Energy',
-#                     0.0, 1.0, float(df_filter['energy']))
-#                 instrumentalness = st.slider(
-#                     'Instrumentalness',
-#                     0.0, 1.0, float(df_filter['instrumentalness']))
-#                 valence = st.slider(
-#                     'Valence',
-#                     0.0, 1.0, float(df_filter['valence']))
-#                 tempo = st.slider(
-#                     'Tempo',
-#                     0.0, 244.0, float(df_filter['tempo']))
         with col3:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '700px'})
             df_filter_artists = df_filter_artists.rename(columns={"name": "                                           Setlist                                                                     "})
