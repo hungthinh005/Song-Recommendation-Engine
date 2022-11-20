@@ -112,11 +112,11 @@ def page():
             st.markdown("Advance")
         with col2:
             st.markdown("Genre: ")
-            st.markdown(df_filter_genre)
+            st.write("   ",df_filter_genre)
             st.markdown("Playlist: ")
-            st.markdown(df_filter_playlist)
+            st.write("   ",df_filter_playlist)
             st.markdown("Release Date: ")
-            st.markdown(df_filter_year)
+            st.write("   ",df_filter_year)
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
