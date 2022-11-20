@@ -105,19 +105,20 @@ def page():
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-        if "counter" not in st.session_state:
-            st.session_state.counter = 1 
+#         if "counter" not in st.session_state:
+#             st.session_state.counter = 1 
         if st.button("Search"):
-            st.session_state.counter += 1
-            components.html(
-                f"""
-                    <p>{st.session_state.counter}</p>
-                    <script>
-                        window.parent.document.querySelector('section.main').scrollTo(100, 1000);
-                    </script>
-                """,
-                height=0
-            )
+            components.html(<a href="#google"></a>)
+#             st.session_state.counter += 1
+#             components.html(
+#                 f"""
+#                     <p>{st.session_state.counter}</p>
+#                     <script>
+#                         window.parent.document.querySelector('section.main').scrollTo(100, 1000);
+#                     </script>
+#                 """,
+#                 height=0
+#             )
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
@@ -160,7 +161,8 @@ def page():
                 'Tempo',
                 0.0, 244.0, float(df_filter['tempo']))
     
-    st.markdown("Recommended Songs")
+    components.html(<div id="google">Recommended Songs</div>)
+#     st.markdown("Recommended Songs")
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
     uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
