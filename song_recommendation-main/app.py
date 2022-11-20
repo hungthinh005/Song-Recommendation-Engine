@@ -180,8 +180,7 @@ def page():
     b = np.random.randn(20, 2)
     c = np.random.randn(20, 2)
     d = np.random.randn(20, 2)
-    with st.spinner("Loading..."):
-        time.sleep(1)
+
 
     my_slot1.line_chart(a)
     my_slot2.line_chart(b)
