@@ -6,6 +6,7 @@ import streamlit.components.v1 as components
 import requests
 import numpy as np
 import string
+import time
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 @st.cache(allow_output_mutation=True)
@@ -180,7 +181,8 @@ def page():
     b = np.random.randn(20, 2)
     c = np.random.randn(20, 2)
     d = np.random.randn(20, 2)
-
+    with st.spinner("Loading..."):
+    time.sleep(1)
 
     my_slot1.line_chart(a)
     my_slot2.line_chart(b)
