@@ -100,6 +100,7 @@ def page():
     st.sidebar.markdown("")
     st.sidebar.markdown("")
     st.sidebar.markdown("")
+    components.html("""<a href="#google">Search</a>""")
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
@@ -108,7 +109,7 @@ def page():
 #         if "counter" not in st.session_state:
 #             st.session_state.counter = 1 
         
-        components.html("""<a href="#google">Search</a>""")
+        
                             
 #             st.session_state.counter += 1
 #             components.html(
