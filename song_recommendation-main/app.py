@@ -97,6 +97,9 @@ def page():
         
     st.sidebar.markdown("")
     st.sidebar.markdown("")
+    st.sidebar.markdown("")
+    st.sidebar.markdown("")
+    st.sidebar.markdown("")
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
