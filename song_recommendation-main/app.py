@@ -97,8 +97,8 @@ def page():
         
     
     with st.sidebar.markdown("Choose your favorite genre"):
-        with st.expander():
-            genre = st.sidebar.radio("", genre_names, index=genre_names.index("Electronic"))
+        st.expander(""):
+        genre = st.sidebar.radio("", genre_names, index=genre_names.index("Electronic"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
                 
     with st.container():
