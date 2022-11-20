@@ -106,7 +106,8 @@ def page():
         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
         if "counter" not in st.session_state:
-            st.session_state.counter = 1   
+            st.session_state.counter = 1 
+        if genre != null:
             st.session_state.counter += 1
             components.html(
                 f"""
