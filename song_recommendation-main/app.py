@@ -107,7 +107,7 @@ def page():
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
         if "counter" not in st.session_state:
             st.session_state.counter = 1 
-        while True:
+        st.button("Search"):
             st.session_state.counter += 1
             components.html(
                 f"""
@@ -118,7 +118,6 @@ def page():
                 """,
                 height=0
             )
-            break
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
