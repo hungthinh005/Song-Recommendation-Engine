@@ -69,6 +69,8 @@ def page():
         for character in string.punctuation:
             if character != ",":
                 df_filter_genre = df_filter_genre.replace(character, '')
+        df_filter_playlist = df_filter["playlist"]
+        df_filter_playlist = df_filter_playlist.to_string(header=False, index=False)
         df_filter_year = df_filter["release_date"]
         df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
@@ -87,6 +89,8 @@ def page():
         for character in string.punctuation:
             if character != ",":
                 df_filter_genre = df_filter_genre.replace(character, '')
+        df_filter_playlist = df_filter["playlist"]
+        df_filter_playlist = df_filter_playlist.to_string(header=False, index=False)
         df_filter_year = df_filter["release_date"]
         df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
@@ -108,9 +112,11 @@ def page():
             st.markdown("Advance")
         with col2:
             st.write("Genre: ")
-            st.markdown(***df_filter_genre***)
+            st.markdown(df_filter_genre)
+            st.write("Playlist: ")
+            st.markdown(df_filter_playlist)
             st.write("Release Date: ", df_filter_year)
-            st.markdown(***df_filter_year***)
+            st.markdown(df_filter_year)
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
