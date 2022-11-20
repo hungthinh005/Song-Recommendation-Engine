@@ -64,7 +64,7 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
         df_filter_genre = df_filter_genre.to_string(header=False, index=False)
-        df_filter_year = df_filter["release_year"]
+        df_filter_year = df_filter["release_date"]
         df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
@@ -78,7 +78,7 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
         df_filter_genre = df_filter_genre.to_string(header=False, index=False)
-        df_filter_year = df_filter["release_year"]
+        df_filter_year = df_filter["release_date"]
         df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
@@ -99,7 +99,7 @@ def page():
             st.markdown("Advance")
         with col2:
             st.write("Genre: ", df_filter_genre)
-            st.write("Year: ", df_filter_year)
+            st.write("Release Date: ", df_filter_year)
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
