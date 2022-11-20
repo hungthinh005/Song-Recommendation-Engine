@@ -65,7 +65,6 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
         df_filter_genre = df_filter_genre.to_string(header=False, index=False)
-#         df_filter_genre = df_filter_genre.translate(str.maketrans('', '', string.punctuation))
         for character in string.punctuation:
             if character != ",":
                 df_filter_genre = df_filter_genre.replace(character, '')
@@ -77,7 +76,6 @@ def page():
         artists_name = artists_name.values[0]
         df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)]
         df_filter_artists.index = np.arange(1, len(df_filter_artists) + 1)
-#         df_filter_by_artists = df_filter_by_artists.values.tolist()
     if select_event == "By Lyrics":
         select_df = st.selectbox("Type Your Lyrics", df_filter_lyrics)
         df_filter = df_filter_lyrics.loc[(df_filter_lyrics["lyrics"] == select_df)]
@@ -85,7 +83,6 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
         df_filter_genre = df_filter_genre.to_string(header=False, index=False)
-#         df_filter_genre = df_filter_genre.translate(str.maketrans('', '', string.punctuation))
         for character in string.punctuation:
             if character != ",":
                 df_filter_genre = df_filter_genre.replace(character, '')
@@ -99,7 +96,7 @@ def page():
         df_filter_artists.index = np.arange(1, len(df_filter_artists) + 1)
         
     st.sidebar.markdown("")
-    with st.expander("Choose your favorite genre"):
+    with st.sidebar.expander("Choose your favorite genre"):
         genre = st.sidebar.radio("", genre_names, index=genre_names.index("Electronic"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
                 
