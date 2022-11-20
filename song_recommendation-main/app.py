@@ -111,12 +111,12 @@ def page():
                 components.html(show_song,height= 400)
             st.markdown("Advance")
         with col2:
-            st.markdown("Genre: ")
-            st.write("   ",df_filter_genre)
-            st.markdown("Playlist: ")
-            st.write("   ",df_filter_playlist)
-            st.markdown("Release Date: ")
-            st.write("   ",df_filter_year)
+            st.markdown("**Genre:** ")
+            st.markdown(df_filter_genre)
+            st.markdown("**Playlist:** ")
+            st.markdown(df_filter_playlist)
+            st.markdown("**Release Date:** ")
+            st.markdown(df_filter_year)
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
