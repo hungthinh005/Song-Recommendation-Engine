@@ -64,7 +64,7 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
         df_filter_genre = df_filter_genre.to_string(header=False, index=False)
-        df_filter_year = df_filter["release_year"]
+        df_filter_year = int(df_filter["release_year"])
         df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
@@ -78,7 +78,7 @@ def page():
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
         df_filter_genre = df_filter_genre.to_string(header=False, index=False)
-        df_filter_year = df_filter["release_year"]
+        df_filter_year = int(df_filter["release_year"])
         df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
