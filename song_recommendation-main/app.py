@@ -104,7 +104,7 @@ def page():
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
                 
     with st.container():
-        col1, col2, col3 = st.columns((10, 10, 8))
+        col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
             for i in df_filter_uri:
                 show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
