@@ -108,7 +108,7 @@ def page():
 #         if "counter" not in st.session_state:
 #             st.session_state.counter = 1 
         if st.button("Search"):
-            components.html(<a href="#google"></a>)
+            components.html("<a href="#google"></a>")
 #             st.session_state.counter += 1
 #             components.html(
 #                 f"""
@@ -161,7 +161,7 @@ def page():
                 'Tempo',
                 0.0, 244.0, float(df_filter['tempo']))
     
-    components.html(<div id="google">Recommended Songs</div>)
+    components.html("<div id="google">Recommended Songs</div>")
 #     st.markdown("Recommended Songs")
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
