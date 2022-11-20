@@ -118,6 +118,7 @@ def page():
                 """,
                 height=0
             )
+            break
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
