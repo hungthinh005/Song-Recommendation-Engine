@@ -96,8 +96,8 @@ def page():
         df_filter_artists.index = np.arange(1, len(df_filter_artists) + 1)
         
     
-    with st.sidebar.markdown("Choose your favorite genre"):
-        with st.expander(""):
+    with st.sidebar.markdown("/n/n"):
+        with st.expander("Choose your favorite genre"):
             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
                 
