@@ -63,9 +63,9 @@ def page():
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
-        df_filter_genre = df_filter_genre.values.tolist()
+        df_filter_genre = df_filter_genre.to_string(header=False, index=False)
         df_filter_year = df_filter["release_year"]
-        df_filter_year = df_filter_year.values.tolist()
+        df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
         df_filter_artists = df_filter_name[(df_filter_name["artists_name"] == artists_name)]
@@ -77,9 +77,9 @@ def page():
         df_filter_uri = df_filter["uri"]
         df_filter_uri = df_filter_uri.values.tolist()
         df_filter_genre = df_filter["genres"]
-        df_filter_genre = df_filter_genre.values.tolist()
+        df_filter_genre = df_filter_genre.to_string(header=False, index=False)
         df_filter_year = df_filter["release_year"]
-        df_filter_year = df_filter_year.values.tolist()
+        df_filter_year = df_filter_year.to_string(header=False, index=False)
         artists_name = df_filter["artists_name"]
         artists_name = artists_name.values[0]
         df_filter_artists = df_filter_lyrics[(df_filter_lyrics["artists_name"] == artists_name)]
@@ -127,8 +127,8 @@ def page():
 #                     0.0, 244.0, float(df_filter['tempo']))
         with col3:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '700px'})
-            df_filter_artists = df_filter_artists.rename(columns={"name": "                                           Setlist                                                                          "})
-            st.write(df_filter_artists["                                           Setlist                                                                          "])
+            df_filter_artists = df_filter_artists.rename(columns={"name": "                                           Setlist                                                                     "})
+            st.write(df_filter_artists["                                           Setlist                                                                     "])
     
     with st.container():
         with st.expander("Choose features to make your own Recommendation List:"):
