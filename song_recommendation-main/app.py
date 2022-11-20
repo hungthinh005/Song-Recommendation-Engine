@@ -170,6 +170,10 @@ def page():
     if 'start_track_i' not in st.session_state:
         st.session_state['start_track_i'] = 0
 
+        
+    #test
+    if "counter" not in st.session_state:
+        st.session_state.counter = 1   
     if st.button("Next"):
         st.session_state.counter += 1
 
@@ -182,7 +186,7 @@ def page():
             """,
             height=0
         )
-    
+    #test
     with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         
