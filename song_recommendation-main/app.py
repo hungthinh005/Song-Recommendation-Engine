@@ -79,12 +79,9 @@ def page():
         
     st.sidebar.markdown("")
     with st.expander("Choose your favorite genre"):
-        genre = st.sidebar.radio("", genre_names, index=genre_names.index("Pop"))
+        genre = st.sidebar.radio("", genre_names, index=genre_names.index("Electronic"))
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-    
-    
-      
-        
+                
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 10))
         with col1:
@@ -93,8 +90,8 @@ def page():
                 components.html(show_song,height= 400)
             st.markdown("Advance")
         with col2:
-            st.markdown("Genre: " )
-            st.markdown("Year: ")
+            st.write("Genre: ", df_filter["genres"])
+            st.write("Year: ", df_filter["release_year"])
 #             with st.expander("Choose features to make your own recommend list:"):
                
 # #                 start_year, end_year = st.slider(
