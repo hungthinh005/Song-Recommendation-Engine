@@ -169,6 +169,26 @@ def page():
     if 'start_track_i' not in st.session_state:
         st.session_state['start_track_i'] = 0
     
+    st.title("Refresh Chart Data and Refocus at TOP")
+    my_slot1 = st.empty()
+    my_slot2 = st.empty()
+    my_slot3 = st.empty()
+    my_slot4 = st.empty()  
+
+    # Simulate reload data call
+    a = np.random.randn(20, 2)
+    b = np.random.randn(20, 2)
+    c = np.random.randn(20, 2)
+    d = np.random.randn(20, 2)
+    with st.spinner("Loading..."):
+        time.sleep(1)
+
+    my_slot1.line_chart(a)
+    my_slot2.line_chart(b)
+    my_slot3.line_chart(c)
+    my_slot4.line_chart(d)
+
+    st.button("Next")
     with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         
