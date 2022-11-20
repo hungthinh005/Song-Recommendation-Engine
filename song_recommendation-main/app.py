@@ -106,6 +106,10 @@ def page():
         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
         with st.container():
+            start_year, end_year = 1990, 2019
+            tracks_per_page = 10
+            test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
+            uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
             tracks = []
             for uri in uris:
                 track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
