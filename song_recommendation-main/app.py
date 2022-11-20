@@ -55,7 +55,7 @@ def page():
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
 
-    st.sidebar.header("Advance")
+    st.sidebar.caption("Advance")
     select_event = st.sidebar.selectbox('How do you want to recommend for you',
                                     ['By Name', 'By Lyrics'])
     if select_event == "By Name":
