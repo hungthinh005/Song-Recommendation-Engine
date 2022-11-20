@@ -56,7 +56,7 @@ def page():
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
 
     st.sidebar.markdown("**Advance**")
-    select_event = st.sidebar.selectbox('How do you want to recommend for you',
+    select_event = st.sidebar.selectbox('How do you want to recommend for you:',
                                     ['By Name', 'By Lyrics'])
     if select_event == "By Name":
         select_df = st.selectbox("Type Your Music", df_filter_name)
@@ -103,9 +103,10 @@ def page():
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
-        genre = st.selectbox("Choose your favorite genre",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
+        genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-                
+        page1()
+        break
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
@@ -236,5 +237,63 @@ def page():
 
         else:
             st.write("No songs left to recommend")
+def page1():
+    with container():
+        tracks = []
+        for uri in uris:
+            track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
+            tracks.append(track)
 
+        if 'previous_inputs' not in st.session_state:
+            st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
+
+        current_inputs = [genre, start_year, end_year] + test_feat
+        if current_inputs != st.session_state['previous_inputs']:
+            if 'start_track_i' in st.session_state:
+                st.session_state['start_track_i'] = 0
+            st.session_state['previous_inputs'] = current_inputs
+
+        if 'start_track_i' not in st.session_state:
+            st.session_state['start_track_i'] = 0
+
+        with st.container():
+            col1, col2, col3 = st.columns([2,1,2])
+            if st.button("Recommend More Songs"):
+                if st.session_state['start_track_i'] < len(tracks):
+                    st.session_state['start_track_i'] += tracks_per_page
+
+            current_tracks = tracks[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
+            current_audios = audios[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
+            if st.session_state['start_track_i'] < len(tracks):
+                for i, (track, audio) in enumerate(zip(current_tracks, current_audios)):
+                    if i%2==0:
+                        with col1:
+                            components.html(
+                                track,
+                                height=400,
+                            )
+                            with st.expander("See more details"):
+                                df_filter_name1 = pd.DataFrame(dict(
+                                r=audio[:5],
+                                theta=audio_feats[:5]))
+                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                                fig.update_layout(height=400, width=340)
+                                st.plotly_chart(fig)
+
+                    else:
+                        with col3:
+                            components.html(
+                                track,
+                                height=400,
+                            )
+                            with st.expander("See more details"):
+                                df_filter_name1 = pd.DataFrame(dict(
+                                r=audio[:5],
+                                theta=audio_feats[:5]))
+                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                                fig.update_layout(height=400, width=340)
+                                st.plotly_chart(fig)
+
+            else:
+                st.write("No songs left to recommend")
 page()
