@@ -106,7 +106,7 @@ def page():
         genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
 #       genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-        genre = st.multiselect("", genre_names)
+
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
