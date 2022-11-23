@@ -32,8 +32,8 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     genre_data = exploded_track_df[(exploded_track_df["genres"] == genre) 
                                    & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
-#     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
-    genre_data = genre_data.drop_duplicates(subset=['uri'], keep = False, inplace = True, ignore_index=True)
+    genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
+#     genre_data = genre_data.drop_duplicates(subset=['uri'], keep = False, inplace = True, ignore_index=True)
 
     neigh = NearestNeighbors()
     neigh.fit(genre_data[audio_feats].to_numpy())
