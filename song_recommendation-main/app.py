@@ -27,9 +27,9 @@ audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "va
 exploded_track_df = load_data()
 
 def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
-#     genre = genre.lower()
+    genre = genre.lower()
 #     [x.lower() for x in genre]
-    genre_data = exploded_track_df[(exploded_track_df["genres"].isin(genre)) 
+    genre_data = exploded_track_df[(exploded_track_df["genres"] == genre) 
                                    & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
 #     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
@@ -104,7 +104,7 @@ def page():
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
-#         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
+      genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
         genre = st.multiselect("", genre_names)
     with st.container():
