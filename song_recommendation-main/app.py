@@ -29,11 +29,11 @@ exploded_track_df = load_data()
 def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     genre = genre.lower()
 #     [x.lower() for x in genre]
-    genre_data = exploded_track_df[(exploded_track_df["genres"]==genre) 
+    genre_data = exploded_track_df[(exploded_track_df["genres"].isin(genre)) 
                                    & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
    
-    genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
-
+#     genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
+    genre_data = genre_data.drop_duplicates(subset=['uri'], keep = False, inplace = True, ignore_index=True)
 
     neigh = NearestNeighbors()
     neigh.fit(genre_data[audio_feats].to_numpy())
@@ -104,23 +104,9 @@ def page():
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
 #             genre = st.radio("", genre_names, index=genre_names.index("Electronic"))
-        genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
+#         genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
 #     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-#         if "counter" not in st.session_state:
-#             st.session_state.counter = 1 
-        
-        
-                            
-#             st.session_state.counter += 1
-#             components.html(
-#                 f"""
-#                     <p>{st.session_state.counter}</p>
-#                     <script>
-#                         window.parent.document.querySelector('section.main').scrollTo(100, 1000);
-#                     </script>
-#                 """,
-#                 height=0
-#             )
+        genre = st.multiselect("", genre_names)
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
