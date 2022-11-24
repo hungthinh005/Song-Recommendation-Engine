@@ -146,8 +146,8 @@ def page():
             st.markdown(df_filter_year)
         with col3:
             df_filter_artists.style.set_properties(subset=["name"], **{'width': '700px'})
-            df_filter_artists = df_filter_artists.rename(columns={"name": "                                           Setlist                                                              "})
-            st.write(df_filter_artists["                                           Setlist                                                              "])
+            df_filter_artists = df_filter_artists.rename(columns={"name": "                                                   Setlist                                                                        "})
+            st.write(df_filter_artists["                                                   Setlist                                                                        "])
     
     with st.container():
         with st.expander("Choose features to make your own Recommendation List:"):
