@@ -130,7 +130,7 @@ def page():
 #                 """,
 #                 height=0
 #             )
-    st.sidebar.markdown("<a href='#linkto_top'>Get List</a>", unsafe_allow_html=True)
+    st.sidebar.markdown("<a href='#link_to_list'><h2>Get List</h2></a>", unsafe_allow_html=True)
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
