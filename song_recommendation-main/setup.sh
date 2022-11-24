@@ -1,7 +1,7 @@
-mkdir -p ~/.streamlit/
+mkdir -p ~song_recommendation-main/.streamlit/
 echo "\
 [server]\n\
 headless = true\n\
 port = $PORT\n\
 enableCORS = false\n\
-" > ~/.streamlit/config.toml
+" > ~song_recommendation-main/.streamlit/config.toml
