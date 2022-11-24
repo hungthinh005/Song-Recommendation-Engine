@@ -4,4 +4,4 @@ echo "\
 headless = true\n\
 port = $PORT\n\
 enableCORS = false\n\
-" > ~/.streamlit/config.toml
+" > ~song_recommendation-main/config.toml
