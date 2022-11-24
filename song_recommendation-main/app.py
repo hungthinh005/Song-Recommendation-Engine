@@ -3,10 +3,10 @@ import pandas as pd
 from sklearn.neighbors import NearestNeighbors
 import plotly.express as px
 import streamlit.components.v1 as components
-import requests
 import numpy as np
 import string
-import time
+from PIL import Image
+
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 @st.cache(allow_output_mutation=True)
@@ -60,8 +60,10 @@ def page():
 
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
-
-    st.sidebar.markdown("**Advance**")
+    
+    image = Image.open('music.png')
+    st.sidebar.image(image)
+#     st.sidebar.markdown("**Advance**")
     select_event = st.sidebar.selectbox('How do you want to recommend for you:',
                                     ['By Name', 'By Lyrics'])
     if select_event == "By Name":
