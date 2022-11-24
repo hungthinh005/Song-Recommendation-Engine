@@ -197,7 +197,8 @@ def page():
         st.session_state['start_track_i'] = 0
 
   
-    st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)  
+    st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)
+    st.markdown("<h3>Your List:</h3>", unsafe_allow_html=True)  
     with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         
