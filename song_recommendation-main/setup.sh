@@ -1,4 +1,4 @@
-mkdir -p ~/
+mkdir -p ~/song_recommendation-main/
 echo "\
 [server]\n\
 headless = true\n\
