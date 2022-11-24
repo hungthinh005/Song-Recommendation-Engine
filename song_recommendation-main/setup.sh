@@ -1,4 +1,4 @@
-mkdir -p ~/.streamlit/
+mkdir -p ~/
 echo "\
 [server]\n\
 headless = true\n\
