@@ -130,6 +130,7 @@ def page():
 #                 """,
 #                 height=0
 #             )
+    st.sidebar.markdown("<a href='#linkto_top'>Get List</a>", unsafe_allow_html=True)
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
         with col1:
@@ -196,7 +197,7 @@ def page():
         st.session_state['start_track_i'] = 0
 
   
-    
+    st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)  
     with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         
