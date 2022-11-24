@@ -61,7 +61,7 @@ def page():
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
     
-    image = Image.open('music.png')
+    image = Image.open('song_recommendation-main/data/music.png')
     st.sidebar.image(image)
 #     st.sidebar.markdown("**Advance**")
     select_event = st.sidebar.selectbox('How do you want to recommend for you:',
