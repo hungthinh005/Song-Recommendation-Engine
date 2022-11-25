@@ -251,7 +251,7 @@ def page():
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
                             temp = ''
-                            height_value = 70
+                            height_value = 75
                             components.html(
                                 temp,
                                 height = height_value,
@@ -263,13 +263,6 @@ def page():
                             track,
                             height=400,
                         )
-                        with st.expander("See more details"):
-                            df_filter_name1 = pd.DataFrame(dict(
-                            r=audio[:5],
-                            theta=audio_feats[:5]))
-                            fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                            fig.update_layout(height=280, width=280,margin=dict(l=40, r=40, b=40, t=40))
-                            st.plotly_chart(fig)
                     with col4:
                         with st.expander("See more details"):
                                 df_filter_name1 = pd.DataFrame(dict(
@@ -302,7 +295,7 @@ def page():
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
                             temp = ''
-                            height_value = 70
+                            height_value = 75
                             components.html(
                                 temp,
                                 height = height_value,
