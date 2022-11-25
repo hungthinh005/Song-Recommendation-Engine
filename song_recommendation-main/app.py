@@ -203,7 +203,7 @@ def page():
         col1, col2, col3 = st.columns([2,1,2])
         
         current_tracks = tracks[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
-        st.write(tracks)
+        
         current_audios = audios[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
         if st.session_state['start_track_i'] < len(tracks):
             for i, (track, audio) in enumerate(zip(current_tracks, current_audios)):
