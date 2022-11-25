@@ -250,13 +250,13 @@ def page():
                                 temp,
                                 height = height_value,
                             )
-                        with st.expander("See more details"):
-                            df_filter_name1 = pd.DataFrame(dict(
-                            r=audio[:5],
-                            theta=audio_feats[:5]))
-                            fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                            fig.update_layout(height=280, width=280,margin=dict(l=40, r=40, b=40, t=40))
-                            st.plotly_chart(fig, theme='streamlit')        
+                            with st.expander("See more details"):
+                                df_filter_name1 = pd.DataFrame(dict(
+                                r=audio[:5],
+                                theta=audio_feats[:5]))
+                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                                fig.update_layout(height=280, width=280,margin=dict(l=40, r=40, b=40, t=40))
+                                st.plotly_chart(fig, theme='streamlit')        
                 else:
                     with col3:
                         components.html(
