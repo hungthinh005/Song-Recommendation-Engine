@@ -209,7 +209,6 @@ def page():
             for i, (track, audio) in enumerate(zip(current_tracks, current_audios)):
                 if i%2==0:
                     with col1:
-                        st.write(track)
                         components.html(
                             track,
                             height=400,
@@ -222,7 +221,37 @@ def page():
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=200)
                             st.plotly_chart(fig)
-            
+                    with col2:
+                        
+                        with st.container():                 
+                            df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
+                            df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
+                            df_filter_genre1 = df_filter_name_for_list[['genres','No']]
+                            
+                            
+                            df_filter_genre1['genres'] = df_filter_name_for_list['genres'].str.replace("'",'')
+                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("[",'')
+                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')
+                            
+                            
+                            df_filter_genre1.set_index('No', inplace = True)
+                            
+                            st.dataframe(df_filter_genre1)
+                            
+                            st.markdown("**Playlist:** ")
+                            df_filter_playlist1 = df_filter_name_for_list['playlist']
+                            df_filter_playlist1 = df_filter_playlist1.to_string(header=False, index=False)
+                            st.markdown(df_filter_playlist1)
+                            st.markdown("**Release Date:** ")
+                            df_filter_year1 = df_filter_name_for_list['release_date']
+                            df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
+                            st.markdown(df_filter_year1)
+                            temp = ''
+                            height_value = 210
+                            components.html(
+                                temp,
+                                height = height_value,
+                            )
                 else:
                     with col3:
                         components.html(
@@ -236,6 +265,37 @@ def page():
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                             fig.update_layout(height=400, width=340)
                             st.plotly_chart(fig)
+                    with col4:
+                        
+                        with st.container():                 
+                            df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
+                            df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
+                            df_filter_genre1 = df_filter_name_for_list[['genres','No']]
+                            
+                            
+                            df_filter_genre1['genres'] = df_filter_name_for_list['genres'].str.replace("'",'')
+                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("[",'')
+                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')
+                            
+                            
+                            df_filter_genre1.set_index('No', inplace = True)
+                            
+                            st.dataframe(df_filter_genre1)
+                            
+                            st.markdown("**Playlist:** ")
+                            df_filter_playlist1 = df_filter_name_for_list['playlist']
+                            df_filter_playlist1 = df_filter_playlist1.to_string(header=False, index=False)
+                            st.markdown(df_filter_playlist1)
+                            st.markdown("**Release Date:** ")
+                            df_filter_year1 = df_filter_name_for_list['release_date']
+                            df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
+                            st.markdown(df_filter_year1)
+                            temp = ''
+                            height_value = 210
+                            components.html(
+                                temp,
+                                height = height_value,
+                            )      
 
         else:
             st.write("No songs left to recommend")
