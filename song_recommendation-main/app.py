@@ -210,7 +210,7 @@ def page():
         
         current_uri = list_uri[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
         if st.session_state['start_track_i'] < len(tracks):
-            for i, (track, audio, uri1) in enumerate(zip(current_tracks, current_audios)):
+            for i, (track, audio, uri1) in enumerate(zip(current_tracks, current_audios, current_uri)):
                 if i%2==0:
                     with col1:
                         components.html(
