@@ -209,6 +209,7 @@ def page():
             for i, (track, audio) in enumerate(zip(current_tracks, current_audios)):
                 if i%2==0:
                     with col1:
+                        st.write(track)
                         components.html(
                             track,
                             height=400,
