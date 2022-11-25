@@ -223,7 +223,7 @@ def page():
                             r=audio[:5],
                             theta=audio_feats[:5]))
                             fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                            fig.update_layout(height=250, width=250)
+                            fig.update_layout(height=200, width=200)
                             st.plotly_chart(fig)
                     with col2:
                         
