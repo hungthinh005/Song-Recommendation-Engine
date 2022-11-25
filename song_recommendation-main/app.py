@@ -211,6 +211,8 @@ def page():
                         components.html(
                             track,
                             height=400,
+                            margin-left: auto,
+                            margin-right: 0,
                         )
                         with st.expander("See more details"):
                             df_filter_name1 = pd.DataFrame(dict(
