@@ -198,7 +198,7 @@ def page():
 
   
     st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)
-    st.markdown("<h3>Your List:</h3>", unsafe_allow_html=True)  
+    st.markdown("<h2 style='text-align: center; color: white;'>Your List</h2>", unsafe_allow_html=True)   
     with st.container():
         col1, col2, col3 = st.columns([2,1,2])
         
