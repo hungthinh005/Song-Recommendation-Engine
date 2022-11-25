@@ -110,7 +110,7 @@ def page():
     
     with st.sidebar.markdown(""):
 #         with st.expander("Choose your favorite genre"):
-        default1 = ['electronic']
+        default1 = ['big room', 'edm']
         genre = st.multiselect("Choose Your Favorite Genre:", genre_names, default = default1)
 
         # genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
