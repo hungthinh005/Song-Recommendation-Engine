@@ -303,7 +303,7 @@ def page():
 
         else:
             st.write("No songs left to recommend")
-        if st.button("Recommend More Songs"):
+        st.sidebar.markdown("<a href='#link_to_list'><h2>Get List</h2></a>", unsafe_allow_html=True)
             if st.session_state['start_track_i'] < len(tracks):
                 st.session_state['start_track_i'] += tracks_per_page
 page()
