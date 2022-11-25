@@ -180,10 +180,12 @@ def page():
     
     
     tracks = []
+    list_uri = []
     for uri in uris:
         track = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(uri)
         tracks.append(track)
-
+        uri1 = uri
+        list_uri.append(uri1)
     if 'previous_inputs' not in st.session_state:
         st.session_state['previous_inputs'] = [genre, start_year, end_year] + test_feat
     
@@ -200,11 +202,13 @@ def page():
     st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center; color: white;'>---------------------------------------Your List---------------------------------------</h2>", unsafe_allow_html=True)   
     with st.container():
-        col1, col2, col3 = st.columns([2,1,2])
+        col1, col2, col3, col4 = st.columns([2,1,2,1])
         
         current_tracks = tracks[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
         
         current_audios = audios[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
+        
+        current_uri = list_uri[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
         if st.session_state['start_track_i'] < len(tracks):
             for i, (track, audio) in enumerate(zip(current_tracks, current_audios)):
                 if i%2==0:
