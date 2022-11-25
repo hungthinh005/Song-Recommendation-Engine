@@ -225,7 +225,7 @@ def page():
                                 r=audio[:5],
                                 theta=audio_feats[:5]))
                                 fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                fig.update_layout(height=170, width=280,margin=dict(l=40, r=40, b=40, t=40))
+                                fig.update_layout(height=130, width=280,margin=dict(l=40, r=40, b=100, t=40))
                                 st.plotly_chart(fig, theme='streamlit')     
                         with st.container():                 
                             df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
