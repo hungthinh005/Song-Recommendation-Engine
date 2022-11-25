@@ -251,7 +251,7 @@ def page():
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
                             temp = ''
-                            height_value = 210
+                            height_value = 220
                             components.html(
                                 temp,
                                 height = height_value,
@@ -295,7 +295,7 @@ def page():
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
                             temp = ''
-                            height_value = 210
+                            height_value = 220
                             components.html(
                                 temp,
                                 height = height_value,
