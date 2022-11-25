@@ -137,7 +137,7 @@ def page():
             for i in df_filter_uri:
                 show_song = """<iframe src="https://open.spotify.com/embed/track/{}" width="260" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>""".format(i)
                 components.html(show_song,height= 400)
-            st.header("Advance:")
+            st.markdown("<h2 style='text-align: center; color: white;'>Advance</h2>", unsafe_allow_html=True)
         with col2:
             st.markdown("**Genre:** ")
             st.markdown(df_filter_genre)
