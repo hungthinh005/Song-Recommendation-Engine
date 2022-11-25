@@ -200,7 +200,7 @@ def page():
     st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center; color: white;'>---------------------------------------Your List---------------------------------------</h2>", unsafe_allow_html=True)   
     with st.container():
-        col1, col2, col3 = st.columns([2,1,2])
+        col1, col2, col3 = st.columns([1,1,2])
         
         current_tracks = tracks[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
         current_audios = audios[st.session_state['start_track_i']: st.session_state['start_track_i'] + tracks_per_page]
