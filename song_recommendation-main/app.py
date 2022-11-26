@@ -18,11 +18,9 @@ def load_data():
     df_filter_lyrics['genres'] = df_filter_lyrics.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
 
     exploded_track_df = df_filter_name.explode("genres")
-    # exploded_track_df1 = df_filter_lyrics.explode("genres")
-    # exploded_track_df = df_filter_name
+
     return exploded_track_df
 
-# genre_names = ['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock']
 
 audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", "tempo"]
 
@@ -30,15 +28,10 @@ exploded_track_df = load_data()
 genre_names = pd.unique(exploded_track_df['genres'])
 
 def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
-    # genre = genre.lower()
-    # [x.lower() for x in genre]
 
     genre = pd.Series(genre)
     genre_data = exploded_track_df[(exploded_track_df["genres"].isin(genre)) 
                                    & (exploded_track_df["release_year"]>=start_year) & (exploded_track_df["release_year"]<=end_year)]
-   
-    # genre_data = genre_data.sort_values(by='popularity', ascending=False)[:500]
-    # genre_data = genre_data[:,~np.all(np.isnan(genre_data), axis=0)]
     genre_data = genre_data.drop_duplicates(subset=['uri'])[:500]
     neigh = NearestNeighbors()
     neigh.fit(genre_data[audio_feats].to_numpy())
@@ -62,7 +55,6 @@ def page():
     
     image = Image.open('song_recommendation-main/data/music.png')
     st.sidebar.image(image)
-#     st.sidebar.markdown("**Advance**")
     select_event = st.sidebar.selectbox('How do you want to recommend for you:',
                                     ['By Name', 'By Lyrics'])
     if select_event == "By Name":
@@ -109,27 +101,8 @@ def page():
     st.sidebar.markdown("")
     
     with st.sidebar.markdown(""):
-#         with st.expander("Choose your favorite genre"):
         default1 = ['big room', 'edm']
         genre = st.multiselect("Choose Your Favorite Genre:", genre_names, default = default1)
-
-        # genre = st.selectbox("Choose your favorite genre:",['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'])
-#     genre = st.sidebar.multiselect('',['Dance Pop', 'Electronic', 'Electropop', 'Hip Hop', 'Jazz', 'K-pop', 'Latin', 'Pop', 'Pop Rap', 'R&B', 'Rock'],['Electronic'])
-#         if "counter" not in st.session_state:
-#             st.session_state.counter = 1 
-        
-        
-                            
-#             st.session_state.counter += 1
-#             components.html(
-#                 f"""
-#                     <p>{st.session_state.counter}</p>
-#                     <script>
-#                         window.parent.document.querySelector('section.main').scrollTo(100, 1000);
-#                     </script>
-#                 """,
-#                 height=0
-#             )
     st.sidebar.markdown("<a href='#link_to_list'><h2>Get List</h2></a>", unsafe_allow_html=True)
     with st.container():
         col1, col2, col3 = st.columns((10, 10, 12))
@@ -173,11 +146,9 @@ def page():
                 'Tempo',
                 0.0, 244.0, float(df_filter['tempo']))
 
-#     st.markdown("Recommended Songs")
     tracks_per_page = 10
     test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
     uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
-    
     
     tracks = []
     list_uri = []
@@ -215,10 +186,8 @@ def page():
                     with col1:
                         components.html(
                             track,
-                            height=400,
-                            
-                        )
-                        
+                            height=400,                          
+                        )                        
                     with col2:                            
                         with st.expander("Song's Info"):              
                             df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
@@ -256,8 +225,7 @@ def page():
                         components.html(
                             temp,
                             height = height_value,
-                        )
-                               
+                        )                           
                 else:
                     with col3:
                         components.html(
@@ -302,7 +270,6 @@ def page():
                             temp,
                             height = height_value,
                         ) 
-
         else:
             st.write("No songs left to recommend")
         if st.button("Recommend More Songs"):
