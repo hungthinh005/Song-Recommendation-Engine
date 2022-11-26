@@ -219,14 +219,7 @@ def page():
                             
                         )
                         
-                    with col2:
-                        with st.expander("Details Features"):
-                                df_filter_name1 = pd.DataFrame(dict(
-                                r=audio[:5],
-                                theta=audio_feats[:5]))
-                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
-                                st.plotly_chart(fig, theme='streamlit')     
+                    with col2:                            
                         with st.expander("Song's Info"):              
                             df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
                             df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
@@ -256,6 +249,13 @@ def page():
                             temp,
                             height = height_value,
                         )
+                        with st.expander("Details Features"):
+                                df_filter_name1 = pd.DataFrame(dict(
+                                r=audio[:5],
+                                theta=audio_feats[:5]))
+                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                                fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
+                                st.plotly_chart(fig, theme='streamlit') 
                                
                 else:
                     with col3:
@@ -264,13 +264,6 @@ def page():
                             height=400,
                         )
                     with col4:
-                        with st.expander("Details Features"):
-                                df_filter_name1 = pd.DataFrame(dict(
-                                r=audio[:5],
-                                theta=audio_feats[:5]))
-                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                fig.update_layout(height=280, width=280,margin=dict(l=40, r=40, b=40, t=40))
-                                st.plotly_chart(fig, theme='streamlit')  
                         with st.expander("Song's Info"):               
                             df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
                             df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
@@ -299,7 +292,14 @@ def page():
                         components.html(
                             temp,
                             height = height_value,
-                        )      
+                        ) 
+                        with st.expander("Details Features"):
+                                df_filter_name1 = pd.DataFrame(dict(
+                                r=audio[:5],
+                                theta=audio_feats[:5]))
+                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                                fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
+                                st.plotly_chart(fig, theme='streamlit') 
 
         else:
             st.write("No songs left to recommend")
