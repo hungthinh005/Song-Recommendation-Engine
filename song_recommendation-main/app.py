@@ -243,12 +243,7 @@ def page():
                             df_filter_year1 = df_filter_name_for_list['release_date']
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
-                        temp = ''
-                        height_value = 275
-                        components.html(
-                            temp,
-                            height = height_value,
-                        )
+                        
                         with st.expander("Details Features"):
                                 df_filter_name1 = pd.DataFrame(dict(
                                 r=audio[:5],
@@ -256,6 +251,12 @@ def page():
                                 fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
                                 st.plotly_chart(fig, theme='streamlit') 
+                        temp = ''
+                        height_value = 275
+                        components.html(
+                            temp,
+                            height = height_value,
+                        )
                                
                 else:
                     with col3:
@@ -287,12 +288,7 @@ def page():
                             df_filter_year1 = df_filter_name_for_list['release_date']
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
-                        temp = ''
-                        height_value = 275
-                        components.html(
-                            temp,
-                            height = height_value,
-                        ) 
+                        
                         with st.expander("Details Features"):
                                 df_filter_name1 = pd.DataFrame(dict(
                                 r=audio[:5],
@@ -300,6 +296,12 @@ def page():
                                 fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
                                 st.plotly_chart(fig, theme='streamlit') 
+                        temp = ''
+                        height_value = 275
+                        components.html(
+                            temp,
+                            height = height_value,
+                        ) 
 
         else:
             st.write("No songs left to recommend")
