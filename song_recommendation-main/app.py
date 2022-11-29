@@ -169,7 +169,6 @@ def page():
     if 'start_track_i' not in st.session_state:
         st.session_state['start_track_i'] = 0
 
-  
     st.markdown("<div id='link_to_list'></div>", unsafe_allow_html=True)
     st.markdown("<h2 style='text-align: center; color: white;'>Your Recommendation List</h2>", unsafe_allow_html=True)   
     with st.container():
@@ -193,12 +192,10 @@ def page():
                             df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
                             df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
                             df_filter_genre1 = df_filter_name_for_list[['genres','No']]
-                            
-                            
+                                                       
                             df_filter_genre1['genres'] = df_filter_name_for_list['genres'].str.replace("'",'')
                             df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("[",'')
-                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')
-                            
+                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')                          
                             
                             df_filter_genre1.set_index('No', inplace = True)
                             
@@ -236,13 +233,11 @@ def page():
                         with st.expander("Song's Info"):               
                             df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
                             df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
-                            df_filter_genre1 = df_filter_name_for_list[['genres','No']]
-                            
+                            df_filter_genre1 = df_filter_name_for_list[['genres','No']]                           
                             
                             df_filter_genre1['genres'] = df_filter_name_for_list['genres'].str.replace("'",'')
                             df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("[",'')
                             df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')
-                            
                             
                             df_filter_genre1.set_index('No', inplace = True)
                             
