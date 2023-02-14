@@ -142,12 +142,12 @@ def page():
             valence = st.slider(
                 'Valence',
                 0.0, 1.0, float(df_filter['valence']))
-            tempo = st.slider(
-                'Tempo',
-                0.0, 244.0, float(df_filter['tempo']))
+#             tempo = st.slider(
+#                 'Tempo',
+#                 0.0, 244.0, float(df_filter['tempo']))
 
     tracks_per_page = 10
-    test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
+    test_feat = [acousticness, danceability, energy, instrumentalness, valence]
     uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
     
     tracks = []
