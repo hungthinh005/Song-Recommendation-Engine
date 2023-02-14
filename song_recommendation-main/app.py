@@ -22,8 +22,8 @@ def load_data():
     return exploded_track_df
 
 
-audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", "tempo"]
-
+# audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", ""]
+audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence"]
 exploded_track_df = load_data()
 genre_names = pd.unique(exploded_track_df['genres'])
 
