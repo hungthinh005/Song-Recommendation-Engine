@@ -46,7 +46,7 @@ def n_neighbors_uri_audio(genre, start_year, end_year, test_feat):
     return uris, audios
 def page():
     
-    st.markdown("<h1 style='text-align: center;'>Song Recommendation Engine</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: black;'>Song Recommendation Engine</h1>", unsafe_allow_html=True)
     st.write("Welcome! This is the place where you can search and customize what you want to listen to based on genre and several audio attributes. Enjoy!")
     st.markdown("##")
 
