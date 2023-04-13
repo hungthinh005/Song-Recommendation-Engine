@@ -48,7 +48,7 @@ def page():
     
     st.markdown("<h1 style='text-align: center; color: white;'>Song Recommendation Engine</h1>", unsafe_allow_html=True)
     st.write("Welcome! This is the place where you can search and customize what you want to listen to based on genre and several audio attributes. Enjoy!")
-    st.markdown("##")
+    st.markdown("##") 
 
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
