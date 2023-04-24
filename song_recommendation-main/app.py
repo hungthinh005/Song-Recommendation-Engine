@@ -198,8 +198,15 @@ def page():
                             df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')                          
                             
                             df_filter_genre1.set_index('No', inplace = True)
-                            
-                            st.dataframe(df_filter_genre1)
+                            hide_table_row_index = """
+                            <style>
+                            thead tr th:first-child {display:none}
+                            tbody th {display:none}
+                            </style>
+                            """
+                            st.markdown(hide_table_row_index, unsafe_allow_html=True)
+
+                            st.table(df_filter_genre1)
                             
                             st.markdown("**Playlist:** ")
                             df_filter_playlist1 = df_filter_name_for_list['playlist']
