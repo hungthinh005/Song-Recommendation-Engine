@@ -6,6 +6,8 @@ import streamlit.components.v1 as components
 import numpy as np
 import string
 from PIL import Image
+import os
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'True'
 
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
