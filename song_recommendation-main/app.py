@@ -23,7 +23,7 @@ def load_data():
 
 
 # audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", ""]
-audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence"]
+audio_feats = ["acousticness", "danceability", "energy", "instrumentalness", "valence", "tempo"]
 exploded_track_df = load_data()
 genre_names = pd.unique(exploded_track_df['genres'])
 
@@ -142,12 +142,12 @@ def page():
             valence = st.slider(
                 'Valence',
                 0.0, 1.0, float(df_filter['valence']))
-#             tempo = st.slider(
-#                 'Tempo',
-#                 0.0, 244.0, float(df_filter['tempo']))
+            tempo = st.slider(
+                'Tempo',
+                0.0, 244.0, float(df_filter['tempo']))
 
     tracks_per_page = 10
-    test_feat = [acousticness, danceability, energy, instrumentalness, valence]
+    test_feat = [acousticness, danceability, energy, instrumentalness, valence, tempo]
     uris, audios = n_neighbors_uri_audio(genre, start_year, end_year, test_feat)
     
     tracks = []
@@ -218,12 +218,12 @@ def page():
                             st.markdown(df_filter_year1)
                         
                         with st.expander("Details Features"):
-                                df_filter_name1 = pd.DataFrame(dict(
-                                r=audio[:4],
-                                theta=audio_feats[:4]))
-                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
-                                st.plotly_chart(fig, theme='streamlit') 
+                            df_filter_name1 = pd.DataFrame(dict(
+                            r=audio[:5],
+                            theta=audio_feats[:5]))
+                            fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                            fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
+                            st.plotly_chart(fig, theme='streamlit') 
                         temp = ''
                         height_value = 275
                         components.html(
@@ -260,12 +260,12 @@ def page():
                             st.markdown(df_filter_year1)
                         
                         with st.expander("Details Features"):
-                                df_filter_name1 = pd.DataFrame(dict(
-                                r=audio[:4],
-                                theta=audio_feats[:4]))
-                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
-                                st.plotly_chart(fig, theme='streamlit') 
+                            df_filter_name1 = pd.DataFrame(dict(
+                            r=audio[:5],
+                            theta=audio_feats[:5]))
+                            fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+                            fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
+                            st.plotly_chart(fig, theme='streamlit') 
                         temp = ''
                         height_value = 275
                         components.html(
