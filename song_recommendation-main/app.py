@@ -219,13 +219,13 @@ def page():
                             df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
                             st.markdown(df_filter_year1)
                         
-                        with st.expander("Details Features"):
-                                df_filter_name1 = dict(
-                                r=audio[:5],
-                                theta=audio_feats[:5])
-                                fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
-                                fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
-                                st.plotly_chart(fig, theme='streamlit') 
+#                         with st.expander("Details Features"):
+#                                 df_filter_name1 = pd.DataFrame(dict(
+#                                 r=audio[:5],
+#                                 theta=audio_feats[:5]))
+#                                 fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
+#                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
+#                                 st.plotly_chart(fig, theme='streamlit') 
                         temp = ''
                         height_value = 275
                         components.html(
