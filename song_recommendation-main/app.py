@@ -227,7 +227,7 @@ def page():
 #                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
 #                                 st.plotly_chart(fig, theme='streamlit') 
                         temp = ''
-                        height_value = 300
+                        height_value = 320
                         components.html(
                             temp,
                             height = height_value,
@@ -269,7 +269,7 @@ def page():
 #                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
 #                                 st.plotly_chart(fig, theme='streamlit') 
                         temp = ''
-                        height_value = 300
+                        height_value = 320
                         components.html(
                             temp,
                             height = height_value,
