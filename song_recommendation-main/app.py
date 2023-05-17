@@ -220,7 +220,7 @@ def page():
                         with st.expander("Details Features"):
                                 df_filter_name1 = pd.DataFrame(dict(
                                 r=audio[:5],
-                                theta=audio_feats[:5]))
+                                theta=audio_feats[:4]))
                                 fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
                                 st.plotly_chart(fig, theme='streamlit') 
@@ -262,7 +262,7 @@ def page():
                         with st.expander("Details Features"):
                                 df_filter_name1 = pd.DataFrame(dict(
                                 r=audio[:5],
-                                theta=audio_feats[:5]))
+                                theta=audio_feats[:4]))
                                 fig = px.line_polar(df_filter_name1, r='r', theta='theta', line_close=True)
                                 fig.update_layout(height=100, width=280,margin=dict(l=40, r=40, b=100, t=10))
                                 st.plotly_chart(fig, theme='streamlit') 
