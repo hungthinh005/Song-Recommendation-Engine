@@ -11,8 +11,8 @@ from PIL import Image
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 @st.cache(allow_output_mutation=True)
 def load_data():
-    df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
-    df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
+    df_filter_name = pd.read_csv("D:\\Thesis\\Song-Recommendation-Engine\\song_recommendation-main\\data\\filter_by_name.csv")
+    df_filter_lyrics = pd.read_csv("D:\\Thesis\\Song-Recommendation-Engine\\song_recommendation-main\\data\\filter_by_lyrics.csv")
 
     df_filter_name['genres'] = df_filter_name.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
     df_filter_lyrics['genres'] = df_filter_lyrics.genres.apply(lambda x: [i[1:-1] for i in str(x)[1:-1].split(", ")])
@@ -50,10 +50,10 @@ def page():
     st.write("Welcome! This is the place where you can search and customize what you want to listen to based on genre and several audio attributes. Enjoy!")
     st.markdown("##") 
 
-    df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
-    df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
+    df_filter_name = pd.read_csv("D:\\Thesis\\Song-Recommendation-Engine\\song_recommendation-main\\data\\filter_by_name.csv")
+    df_filter_lyrics = pd.read_csv("D:\\Thesis\\Song-Recommendation-Engine\\song_recommendation-main\\data\\filter_by_lyrics.csv")
     
-    image = Image.open('song_recommendation-main/data/music.png')
+    image = Image.open('D:\\Thesis\\Song-Recommendation-Engine\\song_recommendation-main\\data\\music.png')
     st.sidebar.image(image)
     select_event = st.sidebar.selectbox('How do you want to recommend for you:',
                                     ['By Name', 'By Lyrics'])
