@@ -10,8 +10,7 @@ from PIL import Image
 
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 
-url = 'https://app.powerbi.com/groups/me/reports/a0337263-438c-4dd1-a380-7dabcde56421?ctid=0231034e-888a-4837-a17f-d85b1ab159ba&pbi_source=linkShare'
-st.markdown(url, unsafe_allow_html=True)
+
 @st.cache(allow_output_mutation=True)
 def load_data():
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
