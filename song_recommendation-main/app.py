@@ -11,7 +11,8 @@ from PIL import Image
 st.set_page_config(page_title="Song Recommendation", layout="wide")
 
 
-@st.cache(allow_output_mutation=True)
+# @st.cache(allow_output_mutation=True)
+@st.cache_resource
 def load_data():
     df_filter_name = pd.read_csv("song_recommendation-main/data/filter by name.csv")
     df_filter_lyrics = pd.read_csv("song_recommendation-main/data/filter by lyrics.csv")
