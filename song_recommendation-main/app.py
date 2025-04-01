@@ -233,7 +233,7 @@ def page():
                         temp = ''
                         height_value = 340
                         components.html(
-                            temp,
+                            # temp,
                             # height = height_value,
                         )                           
                 else:
