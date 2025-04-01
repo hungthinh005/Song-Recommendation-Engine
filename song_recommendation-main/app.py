@@ -191,16 +191,16 @@ def page():
                             height=400,                          
                         )                        
                     with col2:                            
-                        with st.expander("Song's Info"):              
-                            df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
-                            df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
-                            df_filter_genre1 = df_filter_name_for_list[['genres','No']]
-                                                       
-                            df_filter_genre1['genres'] = df_filter_name_for_list['genres'].str.replace("'",'')
-                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("[",'')
-                            df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')                          
-                            
-                            df_filter_genre1.set_index('No', inplace = True)
+                        # with st.expander("Song's Info"):              
+                        df_filter_name_for_list = df_filter_name[df_filter_name['uri'] == uri1]
+                        df_filter_name_for_list['No'] = df_filter_name_for_list['genres'].apply(lambda n: len(n.split(',')))
+                        df_filter_genre1 = df_filter_name_for_list[['genres','No']]
+                                                   
+                        df_filter_genre1['genres'] = df_filter_name_for_list['genres'].str.replace("'",'')
+                        df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("[",'')
+                        df_filter_genre1['genres'] = df_filter_genre1['genres'].str.replace("]",'')                          
+                        
+                        df_filter_genre1.set_index('No', inplace = True)
 #                             hide_table_row_index = """
 #                             <style>
 #                             thead tr th:first-child {display:none}
@@ -210,17 +210,18 @@ def page():
 #                             st.markdown(hide_table_row_index, unsafe_allow_html=True)
 
 #                             st.table(df_filter_genre1)
-                            st.dataframe(df_filter_genre1)
+                        st.markdown("**Song's Info** ")
+                        st.dataframe(df_filter_genre1)
 
-                            
-                            st.markdown("**Playlist:** ")
-                            df_filter_playlist1 = df_filter_name_for_list['playlist']
-                            df_filter_playlist1 = df_filter_playlist1.to_string(header=False, index=False)
-                            st.markdown(df_filter_playlist1)
-                            st.markdown("**Release Date:** ")
-                            df_filter_year1 = df_filter_name_for_list['release_date']
-                            df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
-                            st.markdown(df_filter_year1)
+                        
+                        st.markdown("**Playlist:** ")
+                        df_filter_playlist1 = df_filter_name_for_list['playlist']
+                        df_filter_playlist1 = df_filter_playlist1.to_string(header=False, index=False)
+                        st.markdown(df_filter_playlist1)
+                        st.markdown("**Release Date:** ")
+                        df_filter_year1 = df_filter_name_for_list['release_date']
+                        df_filter_year1 = df_filter_year1.to_string(header=False, index=False)
+                        st.markdown(df_filter_year1)
                         
 #                         with st.expander("Details Features"):
 #                                 df_filter_name1 = pd.DataFrame(dict(
